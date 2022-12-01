@@ -17,6 +17,8 @@ public class RoomNodeSO : ScriptableObject
 #if UNITY_EDITOR
 
     [HideInInspector] public Rect rect;
+    [HideInInspector] public bool isLeftClickDragging = false;
+    [HideInInspector] public bool isSelected = false;
 
     /// <summary>
     /// Initialise node
@@ -45,7 +47,7 @@ public class RoomNodeSO : ScriptableObject
 
         int selected = roomNodeTypeList.list.FindIndex(x => x == roomNodeType);
 
-        int selection = EditorGUILayout.Popup("", selected, GetRoomNodeTypesToDisplay());
+        int selection = EditorGUILayout.Popup("", selected, GetRoomNodeTypesToDisplay());       // 룸 타임 선택 팝업창
 
         roomNodeType = roomNodeTypeList.list[selection];
 
@@ -70,6 +72,118 @@ public class RoomNodeSO : ScriptableObject
         }
 
         return roomArray;
+    }
+
+    /// <summary>
+    /// Process events for the node
+    /// /// </summary>
+    public void ProcessEvents(Event currentEvent)
+    {
+        switch(currentEvent.type)
+        {
+            // Process Mouse Down Events
+            case EventType.MouseDown:
+                ProcessMouseDownEvent(currentEvent);
+                break;
+
+            // Process Mouse Up Events
+            case EventType.MouseUp:
+                ProcessMouseUpEvent(currentEvent);
+                break;
+
+            // Process Mouse Drag Events
+            case EventType.MouseDrag:
+                ProcessMouseDragEvent(currentEvent);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Process mouse down events
+    /// </summary>
+    private void ProcessMouseDownEvent(Event currentEvent)
+    {
+        // left click down
+        if(currentEvent.button == 0)
+        {
+            ProcessLeftClickDownEvent();
+        }
+    }
+
+    /// <summary>
+    /// Process left click down event
+    /// </summary>
+    private void ProcessLeftClickDownEvent()
+    {
+        Selection.activeObject = this;      // 현재 클릭한 룸 노드의 오브젝트를 선택함
+
+        // Toggle node seletion
+        if(isSelected == true)
+        {
+            isSelected = false;
+        }
+        else
+        {
+            isSelected = true;
+        }
+    }
+
+    /// <summary>
+    /// Process mouse up event
+    /// </summary>
+    private void ProcessMouseUpEvent(Event currentEvent)
+    {
+        // left click down
+        if (currentEvent.button == 0)
+        {
+            ProcessLeftClickUpEvent();
+        }
+    }
+
+    /// <summary>
+    /// Process left click up event
+    /// </summary>
+    private void ProcessLeftClickUpEvent()
+    {
+        if(isLeftClickDragging)
+        {
+            isLeftClickDragging = false;
+        }
+    }
+
+    /// <summary>
+    /// Process mouse drag event
+    /// </summary>
+    private void ProcessMouseDragEvent(Event currentEvent)
+    {
+        // process left click drag event
+        if(currentEvent.button == 0)
+        {
+            ProcessLeftMouseDragEvent(currentEvent);
+        }
+    }
+
+    /// <summary>
+    /// Process left mouse drag event
+    /// </summary>
+    private void ProcessLeftMouseDragEvent(Event currentEvent)
+    {
+        isLeftClickDragging = true;
+
+        DragNode(currentEvent.delta);   // currentEvent.delta = 마지막 마우스 이벤트에 비교했을때 마우스의 상대적 움직임
+        GUI.changed = true;
+    }
+
+    /// <summary>
+    /// Drag node
+    /// </summary>
+    public void DragNode(Vector2 delta)
+    {
+        rect.position += delta;
+        EditorUtility.SetDirty(this);
     }
 
 #endif
