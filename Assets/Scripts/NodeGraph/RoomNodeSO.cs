@@ -204,7 +204,16 @@ public class RoomNodeSO : ScriptableObject
     /// </summary>
     public bool AddChildRoomNodeIDToRoomNode(string childID)
     {
-        childRoomNodeIDList.Add(childID);
+        childRoomNodeIDList.Add(childID);   
+        return true;
+    }
+
+    /// <summary>
+    /// Add parentID to the node (returns true if the node has been added, false otgerwise)
+    /// </summary>
+    public bool AddParentRoomNodeIDToRoomNode(string parentID)
+    {
+        parentRoomNodeIDList.Add(parentID);
         return true;
     }
 
