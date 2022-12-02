@@ -76,7 +76,7 @@ public class RoomNodeSO : ScriptableObject
 
     /// <summary>
     /// Process events for the node
-    /// /// </summary>
+    /// </summary>
     public void ProcessEvents(Event currentEvent)
     {
         switch(currentEvent.type)
@@ -202,7 +202,6 @@ public class RoomNodeSO : ScriptableObject
     /// <summary>
     /// Add childID to the node (returns true if the node has been added, false otherwise)
     /// </summary>
-    /// <param name="childID"></param>
     public bool AddChildRoomNodeIDToRoomNode(string childID)
     {
         childRoomNodeIDList.Add(childID);

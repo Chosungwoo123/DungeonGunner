@@ -141,7 +141,7 @@ public class RoomNodeGraphEditor : EditorWindow
 
             // Process Mouse Up Events
             case EventType.MouseUp:
-                ProcessMouseDownEvent(currentEvent);
+                ProcessMouseUpEvent(currentEvent);
                 break;
 
             // Process Mouse Drag Event
