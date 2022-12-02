@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class RoomNodeSO : ScriptableObject
 {
-    [HideInInspector] public string id;
-    [HideInInspector] public List<string> parentRoomNodeIDList = new List<string>();
-    [HideInInspector] public List<string> childRoomNodeIDList = new List<string>();
+    public string id;
+    public List<string> parentRoomNodeIDList = new List<string>();
+    public List<string> childRoomNodeIDList = new List<string>();
     [HideInInspector] public RoomNodeGraphSO roomNodeGraph;
     public RoomNodeTypeSO roomNodeType;
     [HideInInspector] public RoomNodeTypeListSO roomNodeTypeList;
@@ -111,6 +111,11 @@ public class RoomNodeSO : ScriptableObject
         {
             ProcessLeftClickDownEvent();
         }
+        // right click down
+        else if(currentEvent.button == 1)
+        {
+            ProcessRightClickDownEvent(currentEvent);
+        }
     }
 
     /// <summary>
@@ -129,6 +134,14 @@ public class RoomNodeSO : ScriptableObject
         {
             isSelected = true;
         }
+    }
+
+    /// <summary>
+    /// Process right click down
+    /// </summary>
+    private void ProcessRightClickDownEvent(Event currentEvent)
+    {
+        roomNodeGraph.SetNodeToDrawConnectionLineFrom(this, currentEvent.mousePosition);
     }
 
     /// <summary>
@@ -184,6 +197,16 @@ public class RoomNodeSO : ScriptableObject
     {
         rect.position += delta;
         EditorUtility.SetDirty(this);
+    }
+
+    /// <summary>
+    /// Add childID to the node (returns true if the node has been added, false otherwise)
+    /// </summary>
+    /// <param name="childID"></param>
+    public bool AddChildRoomNodeIDToRoomNode(string childID)
+    {
+        childRoomNodeIDList.Add(childID);
+        return true;
     }
 
 #endif
