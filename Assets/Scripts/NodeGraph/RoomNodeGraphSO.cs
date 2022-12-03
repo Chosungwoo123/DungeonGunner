@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="RoomNodeGraph", menuName = "Scriptable Objects/Dungeon/Room Node Graph")]
-
+[CreateAssetMenu(fileName = "RoomNodeGraph", menuName = "Scriptable Objects/Dungeon/Room Node Graph")]
 public class RoomNodeGraphSO : ScriptableObject
 {
     [HideInInspector] public RoomNodeTypeListSO roomNodeTypeList;
@@ -23,10 +21,23 @@ public class RoomNodeGraphSO : ScriptableObject
         roomNodeDictionary.Clear();
 
         // Populate dictionary
-        foreach(RoomNodeSO node in roomNodeList)
+        foreach (RoomNodeSO node in roomNodeList)
         {
             roomNodeDictionary[node.id] = node;
         }
+    }
+
+    /// <summary>
+    /// Get room node by room nodeID
+    /// </summary>
+    public RoomNodeSO GetRoomNode(string roomNodeID)
+    {
+        if(roomNodeDictionary.TryGetValue(roomNodeID, out RoomNodeSO roomNode))
+        {
+            return roomNode;
+        }
+
+        return null;
     }
 
     #region Editor Code
@@ -51,5 +62,5 @@ public class RoomNodeGraphSO : ScriptableObject
 
 #endif
 
-    #endregion Editro Code
+    #endregion Editor Code
 }

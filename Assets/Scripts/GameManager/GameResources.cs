@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameResources : MonoBehaviour
@@ -10,7 +8,7 @@ public class GameResources : MonoBehaviour
     {
         get
         {
-            if(instance == null)
+            if (instance == null)
             {
                 instance = Resources.Load<GameResources>("GameResources");
             }
@@ -19,12 +17,16 @@ public class GameResources : MonoBehaviour
     }
 
     #region Header DUNGEON
+
     [Space(10)]
     [Header("DUNGEON")]
-    #endregion
-    #region Tooltip
-    [Tooltip("Populate with the dungeon RoomNodeTypeListSO")]
-    #endregion
 
+    #endregion Header DUNGEON
+
+    #region Tooltip
+
+    [Tooltip("Populate with the dungeon RoomNodeTypeListSO")]
+
+    #endregion Tooltip
     public RoomNodeTypeListSO roomNodeTypeList;
 }

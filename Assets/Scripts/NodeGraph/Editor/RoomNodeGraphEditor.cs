@@ -1,26 +1,28 @@
-using UnityEngine;
-using UnityEditor.Callbacks;
 using UnityEditor;
+using UnityEditor.Callbacks;
+using UnityEngine;
 
 public class RoomNodeGraphEditor : EditorWindow
 {
     private GUIStyle roomNodeStyle;
+    private GUIStyle roomNodeSelectedStyle;
     private static RoomNodeGraphSO currentRoomNodeGraph;
     private RoomNodeSO currentRoomNode = null;
     private RoomNodeTypeListSO roomNodeTypeList;
 
     // Node layout values
     private const float nodeWidth = 160f;
+
     private const float nodeHeight = 75f;
     private const int nodePadding = 25;
     private const int nodeBorder = 12;
 
     // Connecting line values
     private const float connectingLineWidth = 3f;
+
     private const float connectingLineArrowSize = 6f;
 
     [MenuItem("Room Node Graph Editor", menuItem = "Window/Dungeon Editor/Room Node Graph Editor")]
-
     private static void OpenWindow()
     {
         GetWindow<RoomNodeGraphEditor>("Room Node Graph Editor");
@@ -28,6 +30,9 @@ public class RoomNodeGraphEditor : EditorWindow
 
     private void OnEnable()
     {
+        // Subscribe to the inspector selection changed event
+        Selection.selectionChanged += InspectorSelectionChanged;
+
         // Define node layout style
         roomNodeStyle = new GUIStyle();
         roomNodeStyle.normal.background = EditorGUIUtility.Load("node1") as Texture2D;
@@ -35,8 +40,21 @@ public class RoomNodeGraphEditor : EditorWindow
         roomNodeStyle.padding = new RectOffset(nodePadding, nodePadding, nodePadding, nodePadding);
         roomNodeStyle.border = new RectOffset(nodeBorder, nodeBorder, nodeBorder, nodeBorder);
 
+        // Define selected node style
+        roomNodeSelectedStyle = new GUIStyle();
+        roomNodeSelectedStyle.normal.background = EditorGUIUtility.Load("node1 on") as Texture2D;
+        roomNodeSelectedStyle.normal.textColor = Color.white;
+        roomNodeSelectedStyle.padding = new RectOffset(nodePadding, nodePadding, nodePadding, nodePadding);
+        roomNodeSelectedStyle.border = new RectOffset(nodeBorder, nodeBorder, nodeBorder, nodeBorder);
+
         // Load Room node types
         roomNodeTypeList = GameResources.Instance.roomNodeTypeList;
+    }
+
+    private void OnDisable()
+    {
+        // Unsubscribe from the inspector selection changed event
+        Selection.selectionChanged -= InspectorSelectionChanged;
     }
 
     /// <summary>
@@ -64,7 +82,7 @@ public class RoomNodeGraphEditor : EditorWindow
     private void OnGUI()
     {
         // If a scriptable object of type RoomNodeGraphSO has been selected then process
-        if(currentRoomNodeGraph != null)
+        if (currentRoomNodeGraph != null)
         {
             // Draw line if being dragged
             DrawDraggedLine();
@@ -79,7 +97,7 @@ public class RoomNodeGraphEditor : EditorWindow
             DrawRoomNodes();
         }
 
-        if(GUI.changed)
+        if (GUI.changed)
         {
             Repaint();
         }
@@ -87,7 +105,7 @@ public class RoomNodeGraphEditor : EditorWindow
 
     private void DrawDraggedLine()
     {
-        if(currentRoomNodeGraph.linePosition != Vector2.zero)
+        if (currentRoomNodeGraph.linePosition != Vector2.zero)
         {
             //Draw line from node to line position
             Handles.DrawBezier(currentRoomNodeGraph.roomNodeToDrawLineFrom.rect.center, currentRoomNodeGraph.linePosition,
@@ -98,13 +116,13 @@ public class RoomNodeGraphEditor : EditorWindow
     private void ProcessEvents(Event currentEvent)
     {
         // Get room node that mouse is over if it's null or not currently being dragged
-        if(currentRoomNode == null || currentRoomNode.isLeftClickDragging == false)
+        if (currentRoomNode == null || currentRoomNode.isLeftClickDragging == false)
         {
             currentRoomNode = IsMouseOverRoomNode(currentEvent);
         }
 
         // if mouse isn't over a room node or we are currently dragging a line from the room node then process graph events
-        if(currentRoomNode == null || currentRoomNodeGraph.roomNodeToDrawLineFrom != null)
+        if (currentRoomNode == null || currentRoomNodeGraph.roomNodeToDrawLineFrom != null)
         {
             ProcessRoomNodeGraphEvents(currentEvent);
         }
@@ -120,9 +138,9 @@ public class RoomNodeGraphEditor : EditorWindow
     /// </summary>
     private RoomNodeSO IsMouseOverRoomNode(Event currentEvent)
     {
-        for(int i = currentRoomNodeGraph.roomNodeList.Count - 1; i >= 0; i--)
+        for (int i = currentRoomNodeGraph.roomNodeList.Count - 1; i >= 0; i--)
         {
-            if(currentRoomNodeGraph.roomNodeList[i].rect.Contains(currentEvent.mousePosition))
+            if (currentRoomNodeGraph.roomNodeList[i].rect.Contains(currentEvent.mousePosition))
             {
                 return currentRoomNodeGraph.roomNodeList[i];
             }
@@ -136,7 +154,7 @@ public class RoomNodeGraphEditor : EditorWindow
     /// </summary>
     private void ProcessRoomNodeGraphEvents(Event currentEvent)
     {
-        switch(currentEvent.type)
+        switch (currentEvent.type)
         {
             // Process Mouse Down Events
             case EventType.MouseDown:
@@ -164,9 +182,15 @@ public class RoomNodeGraphEditor : EditorWindow
     private void ProcessMouseDownEvent(Event currentEvent)
     {
         // Process right click mouse down on graph event (show context menu)
-        if(currentEvent.button == 1)
+        if (currentEvent.button == 1)
         {
             ShowContextMenu(currentEvent.mousePosition);
+        }
+        // Process left mouse down on graph event
+        else if(currentEvent.button == 0)
+        {
+            ClearLineDrag();
+            ClearAllSelectedRoomNodes();
         }
     }
 
@@ -182,8 +206,17 @@ public class RoomNodeGraphEditor : EditorWindow
         menu.ShowAsContext();
     }
 
+    /// <summary>
+    /// Create a room node at the mouse position
+    /// </summary>
     private void CreateRoomNode(object mousePositionObject)
     {
+        // If current node graph empty then add entrance room node first
+        if (currentRoomNodeGraph.roomNodeList.Count == 0)
+        {
+            CreateRoomNode(new Vector2(200f, 200f), roomNodeTypeList.list.Find(x => x.isEntrance));
+        }
+
         CreateRoomNode(mousePositionObject, roomNodeTypeList.list.Find(x => x.isNone));
     }
 
@@ -213,20 +246,36 @@ public class RoomNodeGraphEditor : EditorWindow
     }
 
     /// <summary>
+    /// Clear selection from all room nodes
+    /// </summary>
+    private void ClearAllSelectedRoomNodes()
+    {
+        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
+        {
+            if(roomNode.isSelected)
+            {
+                roomNode.isSelected = false;
+
+                GUI.changed = true;
+            }
+        }
+    }
+
+    /// <summary>
     /// Process mouse up events
     /// </summary>
     private void ProcessMouseUpEvent(Event currentEvent)
     {
         // if releasing the right mouse buttom and currently dragging a line
-        if(currentEvent.button == 1 & currentRoomNodeGraph.roomNodeToDrawLineFrom != null)
+        if (currentEvent.button == 1 & currentRoomNodeGraph.roomNodeToDrawLineFrom != null)
         {
             // Check if over a room node
             RoomNodeSO roomNode = IsMouseOverRoomNode(currentEvent);
 
-            if(roomNode != null)
+            if (roomNode != null)
             {
                 // If so set it as a child of the parent room node if it can be added
-                if(currentRoomNodeGraph.roomNodeToDrawLineFrom.AddChildRoomNodeIDToRoomNode(roomNode.id))
+                if (currentRoomNodeGraph.roomNodeToDrawLineFrom.AddChildRoomNodeIDToRoomNode(roomNode.id))
                 {
                     // Set parent ID in child room node
                     roomNode.AddParentRoomNodeIDToRoomNode(currentRoomNodeGraph.roomNodeToDrawLineFrom.id);
@@ -243,7 +292,7 @@ public class RoomNodeGraphEditor : EditorWindow
     private void ProcessMouseDragEvent(Event currentEvent)
     {
         // process right click drag event - draw line
-        if(currentEvent.button == 1)
+        if (currentEvent.button == 1)
         {
             ProcessRightMouseDragEvent(currentEvent);
         }
@@ -254,7 +303,7 @@ public class RoomNodeGraphEditor : EditorWindow
     /// </summary>
     private void ProcessRightMouseDragEvent(Event currentEvent)
     {
-        if(currentRoomNodeGraph.roomNodeToDrawLineFrom != null)
+        if (currentRoomNodeGraph.roomNodeToDrawLineFrom != null)
         {
             DragConnectingLine(currentEvent.delta);
             GUI.changed = true;
@@ -285,15 +334,15 @@ public class RoomNodeGraphEditor : EditorWindow
     private void DrawRoomConnections()
     {
         // Loop through all room nodes
-        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
+        foreach (RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
         {
-            if(roomNode.childRoomNodeIDList.Count > 0)
+            if (roomNode.childRoomNodeIDList.Count > 0)
             {
                 // Loop through child room nodes
-                foreach(string childRoomNodeID in roomNode.childRoomNodeIDList)
+                foreach (string childRoomNodeID in roomNode.childRoomNodeIDList)
                 {
                     // get child room node from dictionary
-                    if(currentRoomNodeGraph.roomNodeDictionary.ContainsKey(childRoomNodeID))
+                    if (currentRoomNodeGraph.roomNodeDictionary.ContainsKey(childRoomNodeID))
                     {
                         DrawConnectionLine(roomNode, currentRoomNodeGraph.roomNodeDictionary[childRoomNodeID]);
 
@@ -320,7 +369,7 @@ public class RoomNodeGraphEditor : EditorWindow
         Vector2 direction = endPosition - startPosition;        // 화살표 방향
 
         // Calulate normalised perpendicular positions from the mid point       수직 위치 계산
-        Vector2 arrowTailPoint1 = midPosition - new Vector2(-direction.y, direction.x).normalized * connectingLineArrowSize;     
+        Vector2 arrowTailPoint1 = midPosition - new Vector2(-direction.y, direction.x).normalized * connectingLineArrowSize;
         Vector2 arrowTailPoint2 = midPosition + new Vector2(-direction.y, direction.x).normalized * connectingLineArrowSize;
 
         // Calulate mid point offset position for arrow head                    헤드 위치 계산
@@ -342,11 +391,32 @@ public class RoomNodeGraphEditor : EditorWindow
     private void DrawRoomNodes()
     {
         // Loop through all room nodes and draw them
-        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
+        foreach (RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
         {
-            roomNode.Draw(roomNodeStyle);
+            if(roomNode.isSelected)
+            {
+                roomNode.Draw(roomNodeSelectedStyle);
+            }
+            else
+            {
+                roomNode.Draw(roomNodeStyle);
+            }
         }
 
         GUI.changed = true;
     }
+
+    /// <summary>
+    /// Selection changed in the inspector
+    /// </summary>
+    private void InspectorSelectionChanged()
+    {
+        RoomNodeGraphSO roomNodeGraph = Selection.activeObject as RoomNodeGraphSO;
+
+        if(roomNodeGraph != null)
+        {
+            currentRoomNodeGraph = roomNodeGraph;
+            GUI.changed = true;
+        }
+    }    
 }
