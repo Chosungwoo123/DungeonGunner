@@ -17,6 +17,7 @@ public class RoomNodeGraphEditor : EditorWindow
 
     // Connecting line values
     private const float connectingLineWidth = 3f;
+    private const float connectingLineArrowSize = 6f;
 
     [MenuItem("Room Node Graph Editor", menuItem = "Window/Dungeon Editor/Room Node Graph Editor")]
 
@@ -70,6 +71,9 @@ public class RoomNodeGraphEditor : EditorWindow
 
             // Process Events
             ProcessEvents(Event.current);
+
+            // Draw Connections Between Room Nodes
+            DrawRoomConnections();
 
             // Draw Room Nodes
             DrawRoomNodes();
@@ -203,6 +207,9 @@ public class RoomNodeGraphEditor : EditorWindow
         AssetDatabase.AddObjectToAsset(roomNode, currentRoomNodeGraph);
 
         AssetDatabase.SaveAssets();
+
+        // Refresh graph node dictionary
+        currentRoomNodeGraph.OnValidate();
     }
 
     /// <summary>
@@ -269,6 +276,63 @@ public class RoomNodeGraphEditor : EditorWindow
     {
         currentRoomNodeGraph.roomNodeToDrawLineFrom = null;
         currentRoomNodeGraph.linePosition = Vector2.zero;
+        GUI.changed = true;
+    }
+
+    /// <summary>
+    /// Draw connections in the graph window between room nodes
+    /// </summary>
+    private void DrawRoomConnections()
+    {
+        // Loop through all room nodes
+        foreach(RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
+        {
+            if(roomNode.childRoomNodeIDList.Count > 0)
+            {
+                // Loop through child room nodes
+                foreach(string childRoomNodeID in roomNode.childRoomNodeIDList)
+                {
+                    // get child room node from dictionary
+                    if(currentRoomNodeGraph.roomNodeDictionary.ContainsKey(childRoomNodeID))
+                    {
+                        DrawConnectionLine(roomNode, currentRoomNodeGraph.roomNodeDictionary[childRoomNodeID]);
+
+                        GUI.changed = true;
+                    }
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Draw connection line between the parent room node and child room node
+    /// </summary>
+    private void DrawConnectionLine(RoomNodeSO parentRoomNode, RoomNodeSO childRoomNode)
+    {
+        // get line start and end position
+        Vector2 startPosition = parentRoomNode.rect.center;
+        Vector2 endPosition = childRoomNode.rect.center;
+
+        // calculate midway point
+        Vector2 midPosition = (endPosition + startPosition) / 2f;   // 중앙 화살표를 위한 변수
+
+        // Vector from start to end position of line
+        Vector2 direction = endPosition - startPosition;        // 화살표 방향
+
+        // Calulate normalised perpendicular positions from the mid point       수직 위치 계산
+        Vector2 arrowTailPoint1 = midPosition - new Vector2(-direction.y, direction.x).normalized * connectingLineArrowSize;     
+        Vector2 arrowTailPoint2 = midPosition + new Vector2(-direction.y, direction.x).normalized * connectingLineArrowSize;
+
+        // Calulate mid point offset position for arrow head                    헤드 위치 계산
+        Vector2 arrowHeadPoint = midPosition + direction.normalized * connectingLineArrowSize;
+
+        // Draw Arrow
+        Handles.DrawBezier(arrowHeadPoint, arrowTailPoint1, arrowHeadPoint, arrowTailPoint1, Color.white, null, connectingLineWidth);
+        Handles.DrawBezier(arrowHeadPoint, arrowTailPoint2, arrowHeadPoint, arrowTailPoint2, Color.white, null, connectingLineWidth);
+
+        // Draw line
+        Handles.DrawBezier(startPosition, endPosition, startPosition, endPosition, Color.white, null, connectingLineWidth);
+
         GUI.changed = true;
     }
 
