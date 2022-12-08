@@ -42,18 +42,28 @@ public class RoomNodeGraphEditor : EditorWindow
         Selection.selectionChanged += InspectorSelectionChanged;
 
         // Define node layout style
-        roomNodeStyle = new GUIStyle();
-        roomNodeStyle.normal.background = EditorGUIUtility.Load("node1") as Texture2D;
-        roomNodeStyle.normal.textColor = Color.white;
-        roomNodeStyle.padding = new RectOffset(nodePadding, nodePadding, nodePadding, nodePadding);
-        roomNodeStyle.border = new RectOffset(nodeBorder, nodeBorder, nodeBorder, nodeBorder);
+        roomNodeStyle = new GUIStyle
+        {
+            normal =
+            {
+                background = EditorGUIUtility.Load("node1") as Texture2D,
+                textColor = Color.white
+            },
+            padding = new RectOffset(nodePadding, nodePadding, nodePadding, nodePadding),
+            border = new RectOffset(nodeBorder, nodeBorder, nodeBorder, nodeBorder)
+        };
 
         // Define selected node style
-        roomNodeSelectedStyle = new GUIStyle();
-        roomNodeSelectedStyle.normal.background = EditorGUIUtility.Load("node1 on") as Texture2D;
-        roomNodeSelectedStyle.normal.textColor = Color.white;
-        roomNodeSelectedStyle.padding = new RectOffset(nodePadding, nodePadding, nodePadding, nodePadding);
-        roomNodeSelectedStyle.border = new RectOffset(nodeBorder, nodeBorder, nodeBorder, nodeBorder);
+        roomNodeSelectedStyle = new GUIStyle
+        {
+            normal =
+            {
+                background = EditorGUIUtility.Load("node1 on") as Texture2D,
+                textColor = Color.white
+            },
+            padding = new RectOffset(nodePadding, nodePadding, nodePadding, nodePadding),
+            border = new RectOffset(nodeBorder, nodeBorder, nodeBorder, nodeBorder)
+        };
 
         // Load Room node types
         roomNodeTypeList = GameResources.Instance.roomNodeTypeList;
