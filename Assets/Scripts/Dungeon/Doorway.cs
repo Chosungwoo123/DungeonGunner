@@ -1,14 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
 [System.Serializable]
-
 public class Doorway 
 {
     public Vector2Int position;
     public Orientation orientation;
     public GameObject doorPrefab;
-
     #region Header
-    [Header("the Upper Left Position To Start Copying From")]
+    [Header("The Upper Left Position To Start Copying From")]
     #endregion
     public Vector2Int doorwayStartCopyPosition;
     #region Header
