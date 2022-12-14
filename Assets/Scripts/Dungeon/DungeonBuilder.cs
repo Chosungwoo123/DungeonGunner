@@ -167,12 +167,34 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
                 // Add room to room dictionary
                 dungeonBuilderRoomDictionary.Add(room.id, room);
             }
-            //else if the room type isn't an entrance
+            // Else if the room type isn't an entrance
             else
             {
                 // Else get parent room for node
                 Room parentRoom = dungeonBuilderRoomDictionary[roomNode.parentRoomNodeIDList[0]];
+
+                // See if room can be placed without overlaps
+                noRoomOverlaps = CanPlaceRoomWithNoOverlaps(roomNode, parentRoom);
             }
+        }
+
+        return noRoomOverlaps;
+    }
+
+    /// <summary>
+    /// Attempt to place the room node in the dungeon - if room can be placed return the room, else return null
+    /// </summary>
+    private bool CanPlaceRoomWithNoOverlaps(RoomNodeSO roomNode, Room parentRoom)
+    {
+        // Initialise and assume overlap until proven otherwise.
+        bool roomOverlaps = true;
+
+        // Do While Room Overlaps - try to place against all avilable doorways of the parent until
+        // the room is successfully placed wuthout overlap.
+        while (roomOverlaps)
+        {
+            // Select random unconnected avilable doorway for Parent
+            List<Doorway> unconnectedAvailableParentDoorways = GetUnconnectedAvailableDoorways(parentRoom.doorwayList).ToList();
         }
     }
 
@@ -201,6 +223,21 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
 
         // Select random room template from list and return
         return matchingRoomTemplateList[UnityEngine.Random.Range(0, matchingRoomTemplateList.Count)];
+    }
+
+    /// <summary>
+    /// Get unconnected doorways
+    /// </summary>
+    private IEnumerable<Doorway> GetUnconnectedAvailableDoorways(List<Doorway> roomDoorwayList)
+    {
+        // Loop through doorway list
+        foreach (Doorway doorway in roomDoorwayList)
+        {
+            if (!doorway.isConnected && !doorway.isUnavailable)
+            {
+                yield return doorway;
+            }
+        }
     }
 
     /// <summary>
