@@ -195,7 +195,74 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
         {
             // Select random unconnected avilable doorway for Parent
             List<Doorway> unconnectedAvailableParentDoorways = GetUnconnectedAvailableDoorways(parentRoom.doorwayList).ToList();
+
+            if (unconnectedAvailableParentDoorways.Count == 0)
+            {
+                // If no more doorways to try then overlap failure.
+                return false;   // room overlaps
+            }
+
+            Doorway doorwayParent = unconnectedAvailableParentDoorways[UnityEngine.Random.Range(0, unconnectedAvailableParentDoorways.Count)];
+
+            // Get a random room template for room node that is consistent with the parent door orientation
+            RoomTemplateSO roomtemplate = GetRandomTemplateForRoomConsistentWithParent(roomNode, doorwayParent);
+
+            // Create a room
+            Room room = CreateRoomFromRoomTemplate(roomtemplate, roomNode);
+
+            // Place the room - returns true if the room doesn't overlap
+            if (PlaceTheRoom(parentRoom, doorwayParent, room))
+            {
+
+            }
         }
+    }
+
+    /// <summary>
+    /// Get random room template for room node taking into account the parent doorway orientation
+    /// </summary>
+    private RoomTemplateSO GetRandomTemplateForRoomConsistentWithParent(RoomNodeSO roomNode, Doorway doorwayParent)
+    {
+        RoomTemplateSO roomtemplate = null;
+
+        // If room node is a corridor then select random correct Corridor room template based on
+        // parent doorway orientation
+        if (roomNode.roomNodeType.isCorridor)
+        {
+            switch (doorwayParent.orientation)
+            {
+                case Orientation.north:
+                case Orientation.south:
+                    roomtemplate = GetRandomRoomTemplate(roomNodeTypeList.list.Find(x => x.isCorridorNS));
+                    break;
+
+                case Orientation.east:
+                case Orientation.west:
+                    roomtemplate = GetRandomRoomTemplate(roomNodeTypeList.list.Find(x => x.isCorridorEW));
+                    break;
+
+                case Orientation.none:
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        //Else select random room template
+        else
+        {
+            roomtemplate = GetRandomRoomTemplate(roomNode.roomNodeType);
+        }
+
+        return roomtemplate;
+    }
+
+    /// <summary>
+    /// Place the room - returns true if the room doesn't overlap, false otherwise
+    /// </summary>
+    private bool PlaceTheRoom(Room parentRoom, Doorway doorwayParent, Room room)
+    {
+
     }
 
     /// <summary>
