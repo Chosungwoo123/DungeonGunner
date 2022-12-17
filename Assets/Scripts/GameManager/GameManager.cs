@@ -67,7 +67,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
         if (!dungeonBuiltSucessfully)
         {
-            Debug.Log("Could't build dungeon from specified rooms and node graphs")
+            Debug.Log("Could't build dungeon from specified rooms and node graphs");
         }
     }
 

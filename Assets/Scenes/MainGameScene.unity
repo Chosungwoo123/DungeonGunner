@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 1032915181}
   - component: {fileID: 1032915180}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Dungeon Builder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,7 +607,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bcbf7f544be65e4468dae69be2421451, type: 2}
   - {fileID: 11400000, guid: 5c04d2df080cf914ca42f48b5340dfd0, type: 2}
   - {fileID: 11400000, guid: 998a5f30c77dfaf438c04c0836cfb0c1, type: 2}
-  currentDungeonLevelListIndex: 0
+  currentDungeonLevelListIndex: 5
   gameState: 0
 --- !u!4 &1375242852
 Transform:

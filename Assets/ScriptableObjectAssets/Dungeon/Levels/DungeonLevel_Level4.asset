@@ -14,28 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Dark Magic
   roomTemplateList:
-  - {fileID: 11400000, guid: b497cf51860cc124088acdf3dfcc4bdc, type: 2}
-  - {fileID: 11400000, guid: 5e10298487db4a548a9e425ea037c915, type: 2}
-  - {fileID: 11400000, guid: 9927e94b574775f4c83d6ac8ef1a7ea1, type: 2}
-  - {fileID: 11400000, guid: 17aab39e60e31b44cbb99c260366f725, type: 2}
-  - {fileID: 11400000, guid: 75e9ed4d33bf76c439c799075b936c76, type: 2}
-  - {fileID: 11400000, guid: 58168ebb0df392f41b061a0c6b25da05, type: 2}
-  - {fileID: 11400000, guid: 230557191ef7e66449fde6cecaf858cb, type: 2}
-  - {fileID: 11400000, guid: 74c9dcaed5ec2f949878a19a2067a840, type: 2}
-  - {fileID: 11400000, guid: 8560fcec9e5cd454aae62d7775c44da1, type: 2}
-  - {fileID: 11400000, guid: 1d5c4c4b7468b7749bced9ffcf6799be, type: 2}
-  - {fileID: 11400000, guid: 0570548b50ed26c469aa21fbd2cce109, type: 2}
-  - {fileID: 11400000, guid: 3cdc996eae718644dad8dad24ae2c39f, type: 2}
-  - {fileID: 11400000, guid: 03fb8e6e180566844b9c3942a093676e, type: 2}
-  - {fileID: 11400000, guid: 5ec7c3fd29261984abd0f0a91400645d, type: 2}
-  - {fileID: 11400000, guid: 162bb1ef7e418cb45b8a9972883291e2, type: 2}
-  - {fileID: 11400000, guid: 441b01f46e3eeb442ade8694ca990dae, type: 2}
-  - {fileID: 11400000, guid: a513c365c6072fa4c9068779c5d2173e, type: 2}
-  - {fileID: 11400000, guid: a1c147aa88a50d64dbc012a46f5d011c, type: 2}
-  - {fileID: 11400000, guid: ffb5abf059fa3cb4187f05ee5225308f, type: 2}
-  - {fileID: 11400000, guid: 1cbc835c305513640970724d8b4d26ef, type: 2}
-  - {fileID: 11400000, guid: 6de62b1aab2953146a354bd9e5f255d0, type: 2}
-  - {fileID: 11400000, guid: ca3ebf2399132f74589db4539c90168f, type: 2}
+  - {fileID: 11400000, guid: 93d5a19f4b6aace49922793f3fb19975, type: 2}
+  - {fileID: 11400000, guid: a78e57a22b8441a4d920713690bfbe82, type: 2}
+  - {fileID: 11400000, guid: f3e9b41bf268eac4ea960aa8e5af4804, type: 2}
+  - {fileID: 11400000, guid: 56752574f921b034eaa3d3e844ff1ad3, type: 2}
+  - {fileID: 11400000, guid: b5d6b7a750a3fb74ba1347c9eda016bd, type: 2}
+  - {fileID: 11400000, guid: f4755a924f6e29844930cae6d7326eae, type: 2}
+  - {fileID: 11400000, guid: 3fe641821de8e5d4aacd3cd6141af9ef, type: 2}
+  - {fileID: 11400000, guid: 7cc8b7445e8ed3e4ea17478076e19828, type: 2}
+  - {fileID: 11400000, guid: c4809859434775c4db43c4fe08eedbac, type: 2}
+  - {fileID: 11400000, guid: 75f657f003d20ca41a404ce258480556, type: 2}
+  - {fileID: 11400000, guid: d71d142559b18e54182ecc4a57b8d521, type: 2}
+  - {fileID: 11400000, guid: 280684b62d7b40f42906e2da772c5afe, type: 2}
+  - {fileID: 11400000, guid: 906fd97f0f6852c44910d1255177abb9, type: 2}
+  - {fileID: 11400000, guid: 934158f41bf0ecc40a7065c7a6102b98, type: 2}
+  - {fileID: 11400000, guid: 573b1fa2887f838478d2d5638ffc9f82, type: 2}
+  - {fileID: 11400000, guid: 8c80937928cc656448fce066056b4413, type: 2}
+  - {fileID: 11400000, guid: 230185be96d7b914092070512659522f, type: 2}
+  - {fileID: 11400000, guid: 51620dc8214bed842b1d2defc616039d, type: 2}
+  - {fileID: 11400000, guid: 3216d5965faf72d41bf434dc2f864c9f, type: 2}
+  - {fileID: 11400000, guid: c98dffe00f9083e4c92a8c220c948709, type: 2}
+  - {fileID: 11400000, guid: c329a45518fe1754391d287e7aaa02ed, type: 2}
+  - {fileID: 11400000, guid: 8f2e8c1257758b0489ad62ed09d9091f, type: 2}
   roomNodeGraphList:
   - {fileID: 11400000, guid: fd40d4acf9cd15344b78d49dd0d0d68b, type: 2}
   - {fileID: 11400000, guid: 4b34a697996adf946a6accfc0383c8a2, type: 2}

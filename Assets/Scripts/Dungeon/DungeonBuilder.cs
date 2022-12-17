@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [DisallowMultipleComponent]
 public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
@@ -339,6 +340,9 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
         }
         else
         {
+            // Just mark the parent doorway as unavailable so we don't try and connect if again
+            doorwayParent.isUnavailable = true;
+
             return false;
         }
     }
@@ -573,7 +577,27 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
     /// </summary>
     private void InstantiateRoomGameobjects()
     {
+        // Iterate throuth all dungeon rooms.
+        foreach (KeyValuePair<string, Room> keyvaluepair in dungeonBuilderRoomDictionary)
+        {
+            Room room = keyvaluepair.Value;
 
+            // Calaulate room position (remember the room instansiatation position needs to be adjusted by the room template lower bounds)
+            Vector3 roomPosition = new Vector3(room.lowerBounds.x - room.templateLowerBounds.x, room.lowerBounds.y - room.templateLowerBounds.y, 0);
+
+            // Instantiate room
+            GameObject roomGameobject = Instantiate(room.prefab, roomPosition, Quaternion.identity, transform);
+
+            // Get instantiated room component from instantiated prefab.
+            InstantiatedRoom instantiatedRoom = roomGameobject.GetComponentInChildren<InstantiatedRoom>();
+
+            instantiatedRoom.room = room;
+
+            // Initialise The Instantiated Room
+            instantiatedRoom.Initialise(roomGameobject);
+
+            room.instantiatedRoom = instantiatedRoom;
+        }
     }
 
     /// <summary>

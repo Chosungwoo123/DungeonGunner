@@ -6339,6 +6339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8434434916786258890}
   - component: {fileID: 5756367566046158872}
+  - component: {fileID: -223272182227704542}
   m_Layer: 12
   m_Name: CorridorNS_MyRooms_1
   m_TagString: Untagged
@@ -6389,6 +6390,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &-223272182227704542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7148501774830472452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab143d3fb703c742a2f20ce72c0a142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 0}
+  groundTilemap: {fileID: 0}
+  decoration1Tilemap: {fileID: 0}
+  decoration2Tilemap: {fileID: 0}
+  frontTilemap: {fileID: 0}
+  collisionTilemap: {fileID: 0}
+  minimapTilemap: {fileID: 0}
+  roomColliderBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
 --- !u!1 &7983392020632011914
 GameObject:
   m_ObjectHideFlags: 0
