@@ -7,6 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1977797226958460048, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Size.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977797226958460048, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Size.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1977797226958460048, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 861a86ce0f088a145a5000969f55cc74, type: 3}
+    - target: {fileID: 1977797226958460048, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2274698157517189078, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -51,9 +67,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2274698157517189097, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 701998777, guid: b284026b5bb410943bfeac47e9ff910b, type: 3}
+    - target: {fileID: 2274698157517189098, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f418f41565a87f245abe48f7b79c82a1, type: 2}
+    - target: {fileID: 2274698157517189100, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].x
+      value: -0.28151107
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274698157517189100, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].y
+      value: 0.6641222
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274698157517189100, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].x
+      value: -0.2808308
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274698157517189100, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].y
+      value: 0.2172845
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274698157517189100, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].x
+      value: 0.30078122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274698157517189100, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].y
+      value: 0.21247959
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274698157517189101, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Mass
+      value: 0.7554301
+      objectReference: {fileID: 0}
     - target: {fileID: 2274698157517189103, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: TheThief
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715261733097523931, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Size.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715261733097523931, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Size.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715261733097523931, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 861a86ce0f088a145a5000969f55cc74, type: 3}
+    - target: {fileID: 5715261733097523931, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774641069027485460, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
