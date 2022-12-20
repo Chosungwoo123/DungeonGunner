@@ -582,7 +582,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: aimRight
+    m_ConditionEvent: aimUpRight
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: isIdle
