@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &605294861787169736
+--- !u!1001 &5089826536202874308
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -18,7 +18,7 @@ PrefabInstance:
     - target: {fileID: 1977797226958460048, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 861a86ce0f088a145a5000969f55cc74, type: 3}
+      objectReference: {fileID: 21300000, guid: a8c352369ed75924d84743672d1ab512, type: 3}
     - target: {fileID: 1977797226958460048, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -67,45 +67,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2274698157517189097, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 701998777, guid: b284026b5bb410943bfeac47e9ff910b, type: 3}
     - target: {fileID: 2274698157517189098, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: f418f41565a87f245abe48f7b79c82a1, type: 2}
+      objectReference: {fileID: 9100000, guid: e87ce176a15556c459b355908992b930, type: 2}
     - target: {fileID: 2274698157517189100, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].x
-      value: -0.28151107
+      value: -0.28160608
       objectReference: {fileID: 0}
     - target: {fileID: 2274698157517189100, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].y
-      value: 0.6641222
-      objectReference: {fileID: 0}
-    - target: {fileID: 2274698157517189100, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].x
-      value: -0.2808308
-      objectReference: {fileID: 0}
-    - target: {fileID: 2274698157517189100, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
-      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].y
-      value: 0.2172845
+      value: 0.6689872
       objectReference: {fileID: 0}
     - target: {fileID: 2274698157517189100, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].x
-      value: 0.30078122
+      value: 0.2960302
       objectReference: {fileID: 0}
     - target: {fileID: 2274698157517189100, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].y
-      value: 0.21247959
+      value: 0.20750055
       objectReference: {fileID: 0}
     - target: {fileID: 2274698157517189101, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_Mass
-      value: 0.7554301
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2274698157517189103, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_Name
-      value: TheThief
+      value: TheGeneral
       objectReference: {fileID: 0}
     - target: {fileID: 2274698157982935065, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_Name
@@ -122,14 +110,10 @@ PrefabInstance:
     - target: {fileID: 5715261733097523931, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 861a86ce0f088a145a5000969f55cc74, type: 3}
+      objectReference: {fileID: 21300000, guid: a8c352369ed75924d84743672d1ab512, type: 3}
     - target: {fileID: 5715261733097523931, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5774641069027485460, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b19e0b9a30f8dca40935693f7b9ae0d6, type: 3}

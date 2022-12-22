@@ -341,7 +341,7 @@ PolygonCollider2D:
       - {x: -0.18897438, y: 1.338626}
       - {x: -0.45699072, y: 1.1688205}
       - {x: -0.45622498, y: 0.8938182}
-      - {x: -0.26930094, y: 0.6714483}
+      - {x: -0.29093218, y: 0.6714483}
       - {x: -0.40491438, y: 0.4593007}
       - {x: -0.2808308, y: 0.21240044}
       - {x: 0.278803, y: 0.21980566}
@@ -393,7 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2274698157982935064}
   m_Layer: 18
-  m_Name: WaeponAnchorPosition
+  m_Name: WeaponAnchorPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
