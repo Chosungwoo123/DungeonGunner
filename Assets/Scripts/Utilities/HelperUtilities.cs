@@ -64,7 +64,6 @@ public static class HelperUtilities
     /// <summary>
     /// Positeve value debug check - if zero is allowed set isZeroAllowed to ture. Returns true if there is an error.
     /// </summary>
-    /// <returns></returns>
     public static bool ValidateCheckPositiveValue(Object thisObject, string fieldName, int valueToCheck, bool isZeroAllowed)
     {
         bool error = false;
@@ -87,5 +86,31 @@ public static class HelperUtilities
         }
 
         return error;
+    }
+
+    /// <summary>
+    /// Get the nearest spawn position to the player
+    /// </summary>
+    public static Vector3 GetSpawnPositionNearestToPlayer(Vector3 playerPosition)
+    {
+        Room currentRoom = GameManager.Instance.GetCurrentRoom();
+
+        Grid grid = currentRoom.instantiatedRoom.grid;
+
+        Vector3 nearestSpawnPosition = new Vector3(10000f, 10000f, 0f);
+
+        // Loop through room spawn position
+        foreach (Vector2Int spawnPositionGrid in currentRoom.spawnPositionArray)
+        {
+            // Convert the spawn grid positions to world
+            Vector3 spawnPositionWorld = grid.CellToWorld((Vector3Int)spawnPositionGrid);
+
+            if (Vector3.Distance(spawnPositionWorld, playerPosition) < Vector3.Distance(nearestSpawnPosition, playerPosition))
+            {
+                nearestSpawnPosition = spawnPositionWorld;
+            }
+        }
+
+        return nearestSpawnPosition;
     }
 }
