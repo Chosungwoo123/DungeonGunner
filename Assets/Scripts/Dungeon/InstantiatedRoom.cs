@@ -27,6 +27,16 @@ public class InstantiatedRoom : MonoBehaviour
         roomColliderBounds = boxCollider2D.bounds;
     }
 
+    // Trigger room changed event when player enters a room
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // If the player triggered the collider
+        if (collision.CompareTag(Settings.playerTag) && room != GameManager.Instance.GetCurrentRoom())
+        {
+
+        }
+    }
+
     /// <summary>
     /// Initialise the Instantiated Room
     /// </summary>
@@ -241,6 +251,18 @@ public class InstantiatedRoom : MonoBehaviour
                     // Create door with parent as the room
                     door = Instantiate(doorway.doorPrefab, gameObject.transform);
                     door.transform.localPosition = new Vector3(doorway.position.x, doorway.position.y + tileDistance * 1.25f, 0f);
+                }
+
+                // Get door component
+                Door doorComponent = door.GetComponent<Door>();
+
+                // Set if door is part of a boss room
+                if (room.roomNodeType.isBossRoom)
+                {
+                    doorComponent.isBossRoomDoor = true;
+
+                    // Lock the door to prevent access to the room
+                    doorComponent.LockDoor();
                 }
             }
         }
