@@ -33,7 +33,11 @@ public class InstantiatedRoom : MonoBehaviour
         // If the player triggered the collider
         if (collision.CompareTag(Settings.playerTag) && room != GameManager.Instance.GetCurrentRoom())
         {
+            // Set room as visited
+            this.room.isPreviouslyVisited = true;
 
+            // Call room changed event
+            StaticEventHandler.CallRoomChangedEvent(room);
         }
     }
 
