@@ -51,7 +51,7 @@ public class Ammo : MonoBehaviour, IFireable
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         DisableAmmo();
     }
