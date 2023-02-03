@@ -11,8 +11,6 @@ public class ReloadWeaponEvent : MonoBehaviour
     /// <summary>
     /// Specity the weapon to have it's clip reloaded. If the total ammo is also to be increased then specify the topUpAmmoPercent.
     /// </summary>
-    /// <param name="weapon"></param>
-    /// <param name="topUpAmmoPercent"></param>
     public void CallReloadWeaponEvent(Weapon weapon, int topUpAmmoPercent)
     {
         OnReloadWeapon?.Invoke(this, new ReloadWeaponEventArgs()
