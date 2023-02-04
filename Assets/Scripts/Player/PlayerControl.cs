@@ -236,12 +236,12 @@ public class PlayerControl : MonoBehaviour
         // Switch weapon if mouse scroll wheel selecetd
         if (Input.mouseScrollDelta.y < 0f)
         {
-            PreviousWeapon();
+            NextWeapon();
         }
 
         if (Input.mouseScrollDelta.y > 0f)
         {
-            NextWeapon();
+            PreviousWeapon();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
