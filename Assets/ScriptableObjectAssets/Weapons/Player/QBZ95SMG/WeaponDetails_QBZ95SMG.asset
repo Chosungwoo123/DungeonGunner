@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdfd95d92b7b89940822fcb3b481a9fb, type: 3}
-  m_Name: WeaponDetails_N22LaserBlaster
+  m_Name: WeaponDetails_QBZ95SMG
   m_EditorClassIdentifier: 
-  weaponName: N22 Laser Blaster
-  weaponSprite: {fileID: 21300000, guid: e9d1276e0a6b9bf42b04b5470c7073fb, type: 3}
-  weaponShootPosition: {x: 1.323, y: 0.294, z: 0}
-  weaponCurrentAmmo: {fileID: 11400000, guid: 95ce8daea792db14582df26cf45a763c, type: 2}
+  weaponName: QBZ95 SMG
+  weaponSprite: {fileID: 21300000, guid: dff74299f2cf7674eb05930ed6b07f8e, type: 3}
+  weaponShootPosition: {x: 1.284, y: 0.342, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: e4a56615404f8ef48bd301d94ad793fd, type: 2}
   hasInfiniteAmmo: 0
   hasInfiniteClipCapacity: 0
-  weaponClipAmmoCapacity: 8
+  weaponClipAmmoCapacity: 15
   weaponAmmoCapacity: 50
-  weaponFireRate: 0.5
-  weaponPrechargeTime: 0.3
+  weaponFireRate: 0.2
+  weaponPrechargeTime: 0
   weaponReloadTime: 3

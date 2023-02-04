@@ -12,27 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d3f4852683fe14098d183e54db6587, type: 3}
   m_Name: AmmoDetails_N22LaserBlaster
   m_EditorClassIdentifier: 
-  ammoName: MP7 Ammo
+  ammoName: N22 Laser Blaster Ammo
   isPlayerAmmo: 1
-  ammoSprite: {fileID: 21300000, guid: e36e8bbd18074d341b170885ac002038, type: 3}
+  ammoSprite: {fileID: 21300000, guid: 4df9cc7131cd27f4288bca5e76c82034, type: 3}
   ammoPrefabArray:
-  - {fileID: 3400509546987783937, guid: ca1c981b852cdf04db52935ea31f988a, type: 3}
-  ammoMaterial: {fileID: 2100000, guid: 33a55999e44f4724191171c59fc64319, type: 2}
+  - {fileID: 3400509546987783937, guid: 820d32a2d345d884eab5c53c6f19f557, type: 3}
+  ammoMaterial: {fileID: 2100000, guid: c64696a09f1cb1a4d9766d1fe9778ca5, type: 2}
   ammoChargeTime: 0
   ammoChargeMaterial: {fileID: 0}
-  ammoDamage: 11
-  ammoSpeedMin: 18
-  ammoSpeedMax: 18
-  ammoRange: 11
+  ammoDamage: 15
+  ammoSpeedMin: 55
+  ammoSpeedMax: 55
+  ammoRange: 14
   ammoRotationSpeed: 1
-  ammoSpreadMin: 2
-  ammoSpreadMax: 4
+  ammoSpreadMin: 0.5
+  ammoSpreadMax: 1
   ammoSpawnAmountMin: 1
   ammoSpawnAmountMax: 1
   ammoSpawnIntervalMin: 0
   ammoSpawnIntervalMax: 0
-  isAmmoTrail: 0
-  ammoTrailTime: 0
-  ammoTrailMaterial: {fileID: 0}
-  ammoTrailStartWidth: 0
-  ammoTrailEndWidth: 0
+  isAmmoTrail: 1
+  ammoTrailTime: 0.1
+  ammoTrailMaterial: {fileID: 2100000, guid: f40d05d451e2ae24f91e9e3314c280da, type: 2}
+  ammoTrailStartWidth: 0.079
+  ammoTrailEndWidth: 0.13
