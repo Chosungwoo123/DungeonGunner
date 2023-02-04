@@ -7,11 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FlameShaderMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: f15d3b3ce6fc5884d9aadef7d8573074, type: 3}
+  m_Name: FlameShaderMaterialRocket
+  m_Shader: {fileID: -6465566751694194690, guid: 19f214a4b547ff14da7533cfcf0a9cf9, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - ETC1_EXTERNAL_ALPHA
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -22,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: aba202b6ec88a2949b57ad64533f6102, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -39,12 +38,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DissolveAmount: 2
-    - _DissolveScale: 1
-    - _Distortion: 0.02
-    - _DistortionScale: 6
+    - _DissolveAmount: 1.2
+    - _DissolveScale: 3
+    - _Distortion: 0.1
+    - _DistortionScale: 10
     m_Colors:
-    - _DissolveSpeed: {r: -0.33, g: -1, b: 0, a: 0}
-    - _EmmissionColor: {r: 766.9961, g: 128.50197, b: 0, a: 1}
-    - _Speed: {r: 0.33, g: -2, b: 0, a: 0}
+    - _DissolveSpeed: {r: 0.5, g: -0.5, b: 0, a: 0}
+    - _EmmissionColor: {r: 95.87451, g: 90.35294, b: 0, a: 0.7019608}
+    - _Speed: {r: -3, g: -2, b: 0, a: 0}
   m_BuildTextureStacks: []
