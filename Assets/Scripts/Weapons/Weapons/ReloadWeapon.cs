@@ -57,8 +57,17 @@ public class ReloadWeapon : MonoBehaviour
         reloadWeaponCoroutine = StartCoroutine(ReloadWeaponRoutine(reloadWeaponEventArgs.weapon, reloadWeaponEventArgs.topUpAmmoPercent));
     }
 
+    /// <summary>
+    /// Reload weapon coroutine
+    /// </summary>
     private IEnumerator ReloadWeaponRoutine(Weapon weapon, int topUpAmmoPercent)
     {
+        // Play reload sound if there is one
+        if (weapon.weaponDetails.weaponReloadingSoundEffect != null)
+        {
+            SoundEffectManager.Instance.PlaySoundEffect(weapon.weaponDetails.weaponReloadingSoundEffect);
+        }
+
         // Set weapon as reloading
         weapon.isWeaponReloading = true;
 
