@@ -1,11 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponShootEffect_", menuName = "Scriptable Objects/Weapons/Weapon Shoot Effect")]
-public class WeaponShootEffectSO : ScriptableObject
+[CreateAssetMenu(fileName = "AmmoHitEffect_",menuName = "Scriptable Objects/Weapons/Ammo Hit Effect")]
+public class AmmoHitEffectSO : ScriptableObject
 {
-    #region Header WEAPON SHOOT EFFECT DETAILS
+    #region Header AMMO HIT EFFECT DETAILS
     [Space(10)]
-    [Header("WEAPON SHOOT EFFECT DETAILS")]
+    [Header("WEAPON AMMO HIT DETAILS")]
     #endregion
 
     #region Tooltip
@@ -69,9 +69,9 @@ public class WeaponShootEffectSO : ScriptableObject
     public Vector3 velocityOverLifetimeMax;
 
     #region Tooltip
-    [Tooltip("weaponShootEffectPrefab contains the particle system for the shoot effect - and is configured by the weaponShootEffectSO")]
+    [Tooltip("The prefab containing the hit effect particle system - requires a corresponding ammoHitEffectSO to be defind")]
     #endregion
-    public GameObject weaponShootEffectPrefab;
+    public GameObject ammoHitEffectPrefab;
 
     #region Validation
 #if UNITY_EDITOR
@@ -85,7 +85,7 @@ public class WeaponShootEffectSO : ScriptableObject
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(maxParticleNumber), maxParticleNumber, false);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(emissionRate), emissionRate, true);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(burstParticleNumber), burstParticleNumber, true);
-        HelperUtilities.ValidateCheckNullValue(this, nameof(weaponShootEffectPrefab), weaponShootEffectPrefab);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(ammoHitEffectPrefab), ammoHitEffectPrefab);
     }
 #endif
     #endregion

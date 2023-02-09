@@ -32,7 +32,7 @@ public class WeaponShootEffect : MonoBehaviour
         SetShootEffectParticleSprite(shootEffect.sprite);
 
         // Set shoot effect lifetime min and max velocities
-        SetShootEffectVelocityOverLifetime(shootEffect.velocityOverLifetimeMin, shootEffect.velocityOverLifetimeMix);
+        SetShootEffectVelocityOverLifetime(shootEffect.velocityOverLifetimeMin, shootEffect.velocityOverLifetimeMax);
     }
 
     /// <summary>
@@ -87,7 +87,7 @@ public class WeaponShootEffect : MonoBehaviour
     }
 
     /// <summary>
-    /// Set shoote effect particle system sprite
+    /// Set shoot effect particle system sprite
     /// </summary>
     private void SetShootEffectParticleSprite(Sprite sprite)
     {

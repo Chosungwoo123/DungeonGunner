@@ -53,6 +53,9 @@ public class Ammo : MonoBehaviour, IFireable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Show ammo hit effect
+        AmmoHitEffect();
+
         DisableAmmo();
     }
 
@@ -151,6 +154,26 @@ public class Ammo : MonoBehaviour, IFireable
 
         // Set ammo fire direction
         fireDirectionVector = HelperUtilities.GetDirectionVectorFromAngle(fireDirectionAngle);
+    }
+
+    /// <summary>
+    /// Display the ammo hit effect
+    /// </summary>
+    private void AmmoHitEffect()
+    {
+        // Process if a hit effect has been specified
+        if (ammoDetails.ammoHitEffect != null && ammoDetails.ammoHitEffect.ammoHitEffectPrefab != null)
+        {
+            // Get ammo hit effect gameobject from the pool (with particle system component)
+            AmmoHitEffect ammoHitEffect = (AmmoHitEffect)PoolManager.Instance.ReuseComponent
+                (ammoDetails.ammoHitEffect.ammoHitEffectPrefab, transform.position, Quaternion.identity);
+
+            // Set hit effect
+            ammoHitEffect.SetHitEffect(ammoDetails.ammoHitEffect);
+
+            // Set gameobject active (the particle system is set to automatically disable the gameobject once finished
+            ammoHitEffect.gameObject.SetActive(true);
+        }
     }
 
     /// <summary>

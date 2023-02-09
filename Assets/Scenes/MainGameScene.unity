@@ -947,7 +947,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 1
+    height: 0.99980265
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2324,6 +2324,9 @@ MonoBehaviour:
   - poolSize: 20
     prefab: {fileID: 1434232971275672711, guid: 60575815b6ac45e429c6c2a89b44abb0, type: 3}
     componentType: WeaponShootEffect
+  - poolSize: 20
+    prefab: {fileID: 7543722668430901864, guid: ae1c4d9488522184db02ba488e636103, type: 3}
+    componentType: AmmoHitEffect
 --- !u!4 &1689168507
 Transform:
   m_ObjectHideFlags: 0
