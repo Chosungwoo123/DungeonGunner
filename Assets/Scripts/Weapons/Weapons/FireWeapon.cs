@@ -200,6 +200,9 @@ public class FireWeapon : MonoBehaviour
 
         // Weapon fired sound effect
         WeaponSoundEffect();
+
+        // Camera Shake
+        CameraShake();
     }
 
     /// <summary>
@@ -238,6 +241,11 @@ public class FireWeapon : MonoBehaviour
             // Set gameobject active (the particle system is set to autematically disable the gameobject once finished
             weaponShootEffect.gameObject.SetActive(true);
         }
+    }
+
+    private void CameraShake()
+    {
+        CinemachineShake.Instance.ShakeCamera(activeWeapon.GetCurrentWeapon().weaponDetails.cameraShakeIntensity, activeWeapon.GetCurrentWeapon().weaponDetails.cameraShakeTime);
     }
 
     /// <summary>

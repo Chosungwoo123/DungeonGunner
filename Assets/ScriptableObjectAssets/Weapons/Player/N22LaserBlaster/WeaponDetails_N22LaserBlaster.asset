@@ -26,3 +26,5 @@ MonoBehaviour:
   weaponFireRate: 0.5
   weaponPrechargeTime: 0.3
   weaponReloadTime: 3
+  cameraShakeIntensity: 7.5
+  cameraShakeTime: 0.1

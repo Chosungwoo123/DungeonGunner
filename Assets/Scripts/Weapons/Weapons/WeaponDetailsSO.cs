@@ -74,6 +74,13 @@ public class WeaponDetailsSO : ScriptableObject
     #endregion
     public float weaponReloadTime = 0f;
 
+    #region Header CAMERA SHAKE
+    [Space(10)]
+    [Header("CAMERA SHAKE")]
+    #endregion
+    public float cameraShakeIntensity = 0f;
+    public float cameraShakeTime = 0f;
+
     #region Validation
 #if UNITY_EDITOR
 
