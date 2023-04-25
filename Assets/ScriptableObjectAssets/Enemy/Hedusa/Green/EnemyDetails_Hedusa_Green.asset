@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156853d784dff9a468ccbe0881f372fa, type: 3}
+  m_Name: EnemyDetails_Hedusa_Green
+  m_EditorClassIdentifier: 
+  enemyName: Hedusa_Green
+  enemyPrefab: {fileID: 1741719392687390627, guid: 02e8d3bdc873a874e9a4293de6d120dd, type: 3}
