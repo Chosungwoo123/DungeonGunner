@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.Audio;
 
 public class GameResources : MonoBehaviour
@@ -73,6 +74,20 @@ public class GameResources : MonoBehaviour
     #endregion
     public Shader variableLitShader;
 
+    #region Header SPECIAL TILEMAP TILES
+    [Space(10)]
+    [Header("SPECIAL TEILMAP TILES")]
+    #endregion
+    #region Tooltip
+    [Tooltip("Collision tiles that the enemies can navigate to")]
+    #endregion
+    public TileBase[] enemyUnwalkableCollisionTilesArray;
+
+    #region Tooltip
+    [Tooltip("Preferred path tile for enemy navigation")]
+    #endregion
+    public TileBase preferredEnemyPathTile;
+
     #region Header UI
     [Space(10)]
     [Header("UI")]
@@ -96,6 +111,8 @@ public class GameResources : MonoBehaviour
         HelperUtilities.ValidateCheckNullValue(this, nameof(litMaterial), litMaterial);
         HelperUtilities.ValidateCheckNullValue(this, nameof(dimmedMaterial), dimmedMaterial);
         HelperUtilities.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
+        HelperUtilities.ValidateCheckEnumerableValues(this, nameof(enemyUnwalkableCollisionTilesArray), enemyUnwalkableCollisionTilesArray);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(preferredEnemyPathTile), preferredEnemyPathTile);
         HelperUtilities.ValidateCheckNullValue(this, nameof(ammoIconPrefab), ammoIconPrefab);
     }
 
