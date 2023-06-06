@@ -49,6 +49,10 @@ public static class Settings
     public const float useAimAngleDistance = 3.5f; // If the target distance is less than this then the aim angle will be used (calculated from player), else the weapon aim angle will be used (calculated from the weapon shoot position).
     #endregion
 
+    #region ASTAR PATHFINDING PARAMETERS
+    public const int defaultAStarMovementPenalty = 40;
+    #endregion
+
     #region UI PARAMETERS
     public const float uiAmmoIconSpacing = 4f;
     #endregion
