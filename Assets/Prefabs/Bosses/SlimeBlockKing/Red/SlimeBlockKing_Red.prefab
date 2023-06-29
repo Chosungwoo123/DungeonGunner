@@ -71,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
       value: 2.9801812
       objectReference: {fileID: 0}
+    - target: {fileID: 2398996212487702386, guid: 9282ee21195b1994f895c380869938f5, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 57bf87d0d84e34a4bad33972ec5e96c8, type: 2}
     - target: {fileID: 2744262176117927311, guid: 9282ee21195b1994f895c380869938f5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -91,6 +95,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6838154625928373529, guid: 9282ee21195b1994f895c380869938f5, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: cd4e1dc7413f8f0408781feaf06d987b, type: 2}
     - target: {fileID: 7313789325229343932, guid: 9282ee21195b1994f895c380869938f5, type: 3}
       propertyPath: m_Name
       value: SlimeBlockKing_Red

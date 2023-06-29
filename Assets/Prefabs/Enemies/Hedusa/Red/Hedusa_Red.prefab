@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
       value: 1.1931475
       objectReference: {fileID: 0}
+    - target: {fileID: 2398996212487702386, guid: 9282ee21195b1994f895c380869938f5, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 69dc370901da22b42a497e24a0d5e562, type: 2}
     - target: {fileID: 2744262176117927311, guid: 9282ee21195b1994f895c380869938f5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -127,6 +131,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6838154625928373529, guid: 9282ee21195b1994f895c380869938f5, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 71d64992b1f6d214fbf9f12fa7eae521, type: 2}
     - target: {fileID: 7313789325229343932, guid: 9282ee21195b1994f895c380869938f5, type: 3}
       propertyPath: m_Name
       value: Hedusa_Red

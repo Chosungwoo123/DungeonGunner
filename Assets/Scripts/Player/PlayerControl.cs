@@ -126,7 +126,7 @@ public class PlayerControl : MonoBehaviour
     }
 
     /// <summary>
-    /// Playe roll
+    /// Player roll
     /// </summary>
     private void PlayerRoll(Vector3 direction)
     {

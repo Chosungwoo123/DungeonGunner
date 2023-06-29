@@ -71,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
       value: 1.88154
       objectReference: {fileID: 0}
+    - target: {fileID: 2398996212487702386, guid: 9282ee21195b1994f895c380869938f5, type: 3}
+      propertyPath: enemyDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: a236bb2ca65703546acad296c19906a4, type: 2}
     - target: {fileID: 2744262176117927311, guid: 9282ee21195b1994f895c380869938f5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -107,6 +111,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6838154625928373529, guid: 9282ee21195b1994f895c380869938f5, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: 1dfc9ff4b800ead4585749ea3eff9ac1, type: 2}
     - target: {fileID: 7313789325229343932, guid: 9282ee21195b1994f895c380869938f5, type: 3}
       propertyPath: m_Name
       value: Orc_Flesh
