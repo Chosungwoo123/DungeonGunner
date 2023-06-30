@@ -936,8 +936,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.9998442
-    height: 1
+    width: 1
+    height: 0.9998437
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2119,7 +2119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab50142fc45d9b44f9ea683e75c4dadd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomTemplateSO: {fileID: 11400000, guid: 5ec7c3fd29261984abd0f0a91400645d, type: 2}
 --- !u!1 &1425643853
 GameObject:
   m_ObjectHideFlags: 0
