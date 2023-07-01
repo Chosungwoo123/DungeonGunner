@@ -332,7 +332,7 @@ public class RoomNodeSO : ScriptableObject
     }
 
     /// <summary>
-    /// Add parentID to the node (returns true if the node has been added, false otgerwise)
+    /// Add parentID to the node (returns true if the node has been added, false otherwise)
     /// </summary>
     public bool AddParentRoomNodeIDToRoomNode(string parentID)
     {
