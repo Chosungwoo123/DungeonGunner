@@ -10,18 +10,23 @@ public class EnemyMovementAI : MonoBehaviour
     #region Tooltip
     [Tooltip("MovementDetailsSO scriptable object containing movement details such as speed")]
     #endregion
-    [SerializeField]
-    private MovementDetailsSO movementDetails;
+    [SerializeField] private MovementDetailsSO movementDetails;
+
+    [HideInInspector] public int updateFrameNumber = 1; // Default value. This is set by the enemy spawner.
 
     [HideInInspector] public float moveSpeed;
     
+    private float currentEnemyPathRebuildCooldown;
+    
+    private bool chasePlayer = false;
+    
     private Enemy enemy;
+    
     private Stack<Vector3> movementSteps = new Stack<Vector3>();
     private Vector3 playerReferencePosition;
+    
     private Coroutine moveEnemyRoutine;
-    private float currentEnemyPathRebuildCooldown;
     private WaitForFixedUpdate waitForFixedUpdate;
-    private bool chasePlayer = false;
 
     private void Awake()
     {
@@ -63,6 +68,12 @@ public class EnemyMovementAI : MonoBehaviour
             return;
         }
         
+        // Only process A Star path rebuild on certain frames to spread the load between enemies
+        if (Time.frameCount % Settings.targetFrameRateToSpreadPathfindingOver != updateFrameNumber)
+        {
+            return;
+        }
+
         // If the movement cooldown timer reached or player has moved more than required distance
         // than rebuild the enemy path and move the enemy
         if (currentEnemyPathRebuildCooldown <= 0f ||
@@ -147,6 +158,14 @@ public class EnemyMovementAI : MonoBehaviour
         {
             enemy.idleEvent.CallIdleEvent();
         }
+    }
+
+    /// <summary>
+    /// Set the frame number that the enemy path will be recalculated on - to avoid performance spikes
+    /// </summary>
+    public void SetUpdateFrameNumber(int updateFrameNumber)
+    {
+        this.updateFrameNumber = updateFrameNumber;
     }
 
     /// <summary>
