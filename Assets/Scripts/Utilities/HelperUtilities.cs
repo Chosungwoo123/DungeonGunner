@@ -59,32 +59,32 @@ public static class HelperUtilities
 
         // Set player direction
         // Up Right
-        if (angleDegrees >= 22f && angleDegrees <= 67f)
+        if (angleDegrees is >= 22f and <= 67f)
         {
             aimDirection = AimDirection.UpRight;
         }
         // Up
-        else if (angleDegrees > 67f && angleDegrees <= 112f)
+        else if (angleDegrees is > 67f and <= 112f)
         {
             aimDirection = AimDirection.Up;
         }
         // Up Left
-        else if (angleDegrees > 112f && angleDegrees <= 158f)
+        else if (angleDegrees is > 112f and <= 158f)
         {
             aimDirection = AimDirection.UpLeft;
         }
         // Left
-        else if ((angleDegrees <= 180f && angleDegrees > 158f) || (angleDegrees > -180f && angleDegrees <= -135f))
+        else if (angleDegrees is <= 180f and > 158f || angleDegrees is > -180f and <= -135f)
         {
             aimDirection = AimDirection.Left;
         }
         // Down
-        else if (angleDegrees > -135f && angleDegrees <= 45f)
+        else if (angleDegrees is > -135f and <= 45f)
         {
             aimDirection = AimDirection.Down;
         }
         // Right
-        else if ((angleDegrees > -45f && angleDegrees <= 0f) || (angleDegrees > 0 && angleDegrees < 22f))
+        else if (angleDegrees is > -45f and <= 0f || angleDegrees is > 0 and < 22f)
         {
             aimDirection = AimDirection.Right;
         }
