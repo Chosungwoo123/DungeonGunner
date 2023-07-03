@@ -937,7 +937,7 @@ Camera:
     x: 0
     y: 0
     width: 1
-    height: 0.99991965
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60

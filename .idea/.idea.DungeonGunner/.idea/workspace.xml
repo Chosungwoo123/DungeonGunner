@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="27ce3eab-b976-4267-9871-52940212d422" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonGunner/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonGunner/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/AnimateEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/AnimateEnemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyDetailsSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyDetailsSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/HelperUtilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/HelperUtilities.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +100,7 @@
       <workItem from="1688215766793" duration="4084000" />
       <workItem from="1688230852961" duration="4708000" />
       <workItem from="1688306101253" duration="2365000" />
+      <workItem from="1688400792364" duration="1750000" />
     </task>
     <task id="LOCAL-00001" summary="적 스포너 스크립트 추가">
       <created>1688215473792</created>
