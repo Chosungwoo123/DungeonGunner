@@ -936,7 +936,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.99956083
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -2362,6 +2362,9 @@ MonoBehaviour:
   - poolSize: 20
     prefab: {fileID: 7543722668430901864, guid: ae1c4d9488522184db02ba488e636103, type: 3}
     componentType: AmmoHitEffect
+  - poolSize: 200
+    prefab: {fileID: 3400509546987783937, guid: d7e45a22e49c7434bb7100e92afce3cd, type: 3}
+    componentType: IFireable
 --- !u!4 &1689168507
 Transform:
   m_ObjectHideFlags: 0
