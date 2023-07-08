@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27ce3eab-b976-4267-9871-52940212d422" name="Changes" comment="" />
+    <list default="true" id="27ce3eab-b976-4267-9871-52940212d422" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Bosses/SkullFace/Blue/EnemyDetails_SkullFace_Blue_Pistol.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Bosses/SkullFace/Blue/EnemyDetails_SkullFace_Blue_Pistol.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Bosses/SkullFace/Green/EnemyDetails_SkullFace_Green_Shotgun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Bosses/SkullFace/Green/EnemyDetails_SkullFace_Green_Shotgun.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Bosses/SkullFace/White/EnemyDetails_SkullFace_White_MP7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Bosses/SkullFace/White/EnemyDetails_SkullFace_White_MP7.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Bosses/SlimeBlocking/Blue/EnemyDetails_SlimeBlockKing_Blue_MP7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Bosses/SlimeBlocking/Blue/EnemyDetails_SlimeBlockKing_Blue_MP7.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Bosses/SlimeBlocking/Green/EnemyDetails_SlimeBlockKing_Green_Shotgun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Bosses/SlimeBlocking/Green/EnemyDetails_SlimeBlockKing_Green_Shotgun.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Bosses/SlimeBlocking/Red/EnemyDetails_SlimeBlockKing_Red_Pistol.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Bosses/SlimeBlocking/Red/EnemyDetails_SlimeBlockKing_Red_Pistol.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Enemy/Grimonk/Brown/EnemyDetails_Grimonk_Brown.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Enemy/Grimonk/Brown/EnemyDetails_Grimonk_Brown.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Weapons/Enemy/Shotgun Boss/WeaponDetails_Shotgun_Boss.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjectAssets/Weapons/Enemy/Shotgun Boss/WeaponDetails_Shotgun_Boss.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,7 +105,7 @@
       <workItem from="1688230852961" duration="4708000" />
       <workItem from="1688306101253" duration="2365000" />
       <workItem from="1688400792364" duration="1750000" />
-      <workItem from="1688820956691" duration="1059000" />
+      <workItem from="1688820956691" duration="464000" />
     </task>
     <task id="LOCAL-00001" summary="적 스포너 스크립트 추가">
       <created>1688215473792</created>
