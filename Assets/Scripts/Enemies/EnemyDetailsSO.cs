@@ -117,6 +117,34 @@ public class EnemyDetailsSO : ScriptableObject
     #endregion
     public bool firingLineOfSightRequired;
 
+    #region Header ENEMY HEALTH
+
+    [Space(10)]
+    [Header("ENEMY HEALTH")]
+
+    #endregion
+    #region Tooltip
+
+    [Tooltip("The health of the enemy for each level")]
+
+    #endregion
+    public EnemyHealthDetails[] enemyHealthDetailArray;
+
+    #region Tooltip
+
+    [Tooltip(
+        "Select if has immunity period immediately after being hit. If so specify the immunity time in seconds in the other field")]
+
+    #endregion
+    public bool isImmuneAfterHit = false;
+
+    #region Tooltip
+
+    [Tooltip("Immunity time in seconds after being hit")]
+
+    #endregion
+    public float hitImmunityTime;
+
     #region Validation
 #if UNITY_EDITOR
 
@@ -132,6 +160,12 @@ public class EnemyDetailsSO : ScriptableObject
             nameof(firingIntervalMax), firingIntervalMax, false);
         HelperUtilities.ValidateCheckPositiveRange(this, nameof(firingDurationMin), firingDurationMin,
             nameof(firingDurationMax), firingDurationMax, false);
+        HelperUtilities.ValidateCheckEnumerableValues(this, nameof(enemyHealthDetailArray), enemyHealthDetailArray);
+
+        if (isImmuneAfterHit)
+        {
+            HelperUtilities.ValidateCheckPositiveValue(this, nameof(hitImmunityTime), hitImmunityTime, false);
+        }
     }
 
 #endif

@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 #region REQUIRE CONPONENTS
 
+[RequireComponent(typeof(HealthEvent))]
+[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(DestroyedEvent))]
+[RequireComponent(typeof(Destroyed))]
 [RequireComponent(typeof(EnemyWeaponAI))]
 [RequireComponent(typeof(AimWeaponEvent))]
 [RequireComponent(typeof(AimWeapon))]
@@ -42,6 +47,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public SpriteRenderer[] spriteRendererArray;
     [HideInInspector] public Animator anim;
 
+    private HealthEvent healthEvent;
+    private Health health;
     private FireWeapon fireWeapon;
     private SetActiveWeaponEvent setActiveWeaponEvent;
     private EnemyMovementAI enemyMovementAI;
@@ -52,6 +59,8 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         // Load components
+        healthEvent = GetComponent<HealthEvent>();
+        health = GetComponent<Health>();
         aimWeaponEvent = GetComponent<AimWeaponEvent>();
         fireWeaponEvent = GetComponent<FireWeaponEvent>();
         fireWeapon = GetComponent<FireWeapon>();
@@ -66,6 +75,35 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+        // Subscribe to health event
+        healthEvent.OnHealthChanged += HealthEvent_OnHealthLost;
+    }
+
+    private void OnDisable()
+    {
+        // Unsubscribe to health event
+        healthEvent.OnHealthChanged -= HealthEvent_OnHealthLost;
+    }
+
+    private void HealthEvent_OnHealthLost(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
+    {
+        if (healthEventArgs.healthAmount <= 0)
+        {
+            EnemyDestroyed();
+        }
+    }
+    
+    /// <summary>
+    /// Enemy destroyed
+    /// </summary>
+    private void EnemyDestroyed()
+    {
+        DestroyedEvent destroyedEvent = GetComponent<DestroyedEvent>();
+        destroyedEvent.CallDestroyedEvent();
+    }
+
     /// <summary>
     /// Initialise the enemy
     /// </summary>
@@ -74,6 +112,8 @@ public class Enemy : MonoBehaviour
         this.enemyDetails = enemyDetails;
 
         SetEnemyMovementUpdateFrame(enemySpawnNumber);
+
+        SetEnemyStartingHealth(dungeonLevel);
 
         SetEnemyStartingWeapon();
 
@@ -90,6 +130,24 @@ public class Enemy : MonoBehaviour
     {
         // Set frame number that enemy should process it's updates
         enemyMovementAI.SetUpdateFrameNumber(enemySpawnNumber % Settings.targetFrameRateToSpreadPathfindingOver);
+    }
+
+    /// <summary>
+    /// Set the starting health for the enemy
+    /// </summary>
+    private void SetEnemyStartingHealth(DungeonLevelSO dungeonLevel)
+    {
+        // Get the enemy health for the dungeon level
+        foreach (EnemyHealthDetails enemyHealthDetails in enemyDetails.enemyHealthDetailArray)
+        {
+            if (enemyHealthDetails.dungeonLevel == dungeonLevel)
+            {
+                health.SetStartingHealth(enemyHealthDetails.enemyHealthAmount);
+                return;
+            }
+        }
+        
+        health.SetStartingHealth(Settings.defaultEnemyHealth);
     }
 
     /// <summary>
