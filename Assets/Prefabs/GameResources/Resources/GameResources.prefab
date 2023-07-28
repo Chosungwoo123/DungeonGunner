@@ -55,4 +55,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 37e2c9e0227bfbc409cd632b9bd0c81f, type: 2}
   - {fileID: 11400000, guid: 98f177f8276c38b429705e6720c48672, type: 2}
   preferredEnemyPathTile: {fileID: 11400000, guid: 3ce5fb260af53d24887b55c3d50041e2, type: 2}
+  heartPrefab: {fileID: 3920110425215982250, guid: da6a64afa163f49439f44e1516c81910, type: 3}
   ammoIconPrefab: {fileID: 5314215644373339278, guid: a722d03759251da44adb0940f051ac1d, type: 3}

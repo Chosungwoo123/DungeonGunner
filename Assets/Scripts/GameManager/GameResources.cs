@@ -89,9 +89,18 @@ public class GameResources : MonoBehaviour
     public TileBase preferredEnemyPathTile;
 
     #region Header UI
+
     [Space(10)]
     [Header("UI")]
+
     #endregion
+    #region Tooltip
+
+    [Tooltip("Populate with heart image prefab")]
+
+    #endregion
+    public GameObject heartPrefab;
+
     #region Tooltip
     [Tooltip("Populate with ammo icon prefab")]
     #endregion
