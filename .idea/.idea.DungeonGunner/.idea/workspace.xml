@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27ce3eab-b976-4267-9871-52940212d422" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health/Health.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health/ReceiveContactDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health/ReceiveContactDamage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
-    </list>
+    <list default="true" id="27ce3eab-b976-4267-9871-52940212d422" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +131,7 @@
       <workItem from="1690811066061" duration="3759000" />
       <workItem from="1690912295984" duration="1281000" />
       <workItem from="1690988180386" duration="880000" />
-      <workItem from="1691674258976" duration="2221000" />
+      <workItem from="1691674258976" duration="2509000" />
     </task>
     <task id="LOCAL-00001" summary="적 스포너 스크립트 추가">
       <created>1688215473792</created>
