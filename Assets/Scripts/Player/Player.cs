@@ -112,8 +112,6 @@ public class Player : MonoBehaviour
     /// </summary>
     private void HealthEvent_OnHealthChanged(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
     {
-        Debug.Log("Health Amount : " + healthEventArgs.healthAmount);
-        
         // If player has died
         if (healthEventArgs.healthAmount <= 0f)
         {
