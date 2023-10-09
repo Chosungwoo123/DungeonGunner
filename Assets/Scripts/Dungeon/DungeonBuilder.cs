@@ -61,16 +61,16 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
             // Select a random room node graph from the list
             RoomNodeGraphSO roomNodeGraph = SelectRandomRoomNodeGraph(currentDungeonLevel.roomNodeGraphList);
 
-            int dungeonRebuildAttempsForNodeGraph = 0;
+            int dungeonRebuildAttemptsForNodeGraph = 0;
             dungeonBuildSuccessful = false;
 
             // Loop until dungeon successfully built or more max attempts for node graph
-            while (!dungeonBuildSuccessful && dungeonRebuildAttempsForNodeGraph <= Settings.maxDungeonRebuildAttmptsForRoomGraph)
+            while (!dungeonBuildSuccessful && dungeonRebuildAttemptsForNodeGraph <= Settings.maxDungeonRebuildAttmptsForRoomGraph)
             {
                 // Clear dungeon room gameobjects and dungeon room dictionary
                 ClearDungeon();
 
-                dungeonRebuildAttempsForNodeGraph++;
+                dungeonRebuildAttemptsForNodeGraph++;
 
                 // Attempt To Build A Random Dungeon For The Selected room node graph
                 dungeonBuildSuccessful = AttemptToBuildRandomDungeon(roomNodeGraph);
@@ -617,6 +617,12 @@ public class DungeonBuilder : SingletonMonoBehaviour<DungeonBuilder>
             instantiatedRoom.Initialise(roomGameobject);
 
             room.instantiatedRoom = instantiatedRoom;
+            
+            // Demo code to set rooms as cleared - except for boss
+            if (!room.roomNodeType.isBossRoom)
+            {
+                room.isClearedOfEnemies = true;
+            }
         }
     }
 

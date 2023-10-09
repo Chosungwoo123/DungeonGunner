@@ -79,8 +79,14 @@ public class EnemySpawner : SingletonMonoBehaviour<EnemySpawner>
     /// </summary>
     private void SpawnEnemies()
     {
-        // Set gamestate engaging enemies
-        if (GameManager.Instance.gameState == GameState.playingLevel)
+        // Set gameState engaging boss
+        if(GameManager.Instance.gameState == GameState.bossStage)
+        {
+            GameManager.Instance.previousGameState = GameState.bossStage;
+            GameManager.Instance.gameState = GameState.engagingBoss;
+        }
+        // Set gameState engaging enemies
+        else if (GameManager.Instance.gameState == GameState.playingLevel)
         {
             GameManager.Instance.previousGameState = GameState.playingLevel;
             GameManager.Instance.gameState = GameState.engagingEvemies;
